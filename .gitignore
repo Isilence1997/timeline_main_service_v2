@@ -1,0 +1,7 @@
+.idea/
+cover.out
+coverage.html
+test.out
+*.log
+video_timeline
+!video_timeline/
