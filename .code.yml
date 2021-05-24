@@ -1,0 +1,175 @@
+# .code.yml规范:
+# https://git.code.oa.com/videobase/videonavi/blob/master/vepc/docs/specification/spec_code_yml.md
+
+# VEPC相关配置
+vepc:
+  # VEPC基础配置
+  basic:
+    name: "123://feeds.video_timeline/go/trpc"
+
+    # 服务的标签
+    tag:
+      - "video_timeline"
+      # - "视频"
+      # - "评论"
+
+    # 鹰眼日志id
+    #log2_ids: [558, 726]
+
+    # bossid
+    #boss_ids: [8894, 8731]
+
+    # attaid
+    #atta_ids: ["z3800008071", "z5800007357"]
+
+
+
+  # 该节点定义服务对外提供的接口
+  #service:
+  # -
+  #    # 接口协议类型
+  #    type: "trpc"
+  #    # service名字
+  #    callee: "com.tencent.spp_rpc.RpcHello"
+  #    # 函数名
+  #    func:
+  #      - "/com.tencent.spp_rpc.RpcHello/Sum"
+  #    # 接口关联协议所在仓库
+  #    remote: "http://git.code.oa.com/vepc_demo/SppRpcPbDemo.git"
+  #    # 在仓库中，协议所在相对路径
+  #    path: "proto/hi_pb.proto"
+  #    # 当前协议对应的commit提交
+  #    commit: "1e8fc29df1c9967da2cacbf965ffab7d57cd6a9d"
+  #    # 协议使用范围：
+  #    # - 部门内
+  #    # - 公司内
+  #    # - 公司外
+  #    scene: "部门内"
+  #    # 协议描述
+  #    description: "求和demo"
+  # -
+  #    # 基于VideoPacket协议的rpc接口
+  #    type: "VideoPacketRpc"
+  #    # service名字
+  #    callee: "ThisIsGreeterTxServerName"
+  #    # 函数名
+  #    func:
+  #      - "SayHello"
+  #    # 接口关联协议所在仓库
+  #    remote: "http://git.code.oa.com/videobase/spp_rpc.git"
+  #    # 在仓库中，协议所在相对路径
+  #    path: "examples/protos/hello_tx.jce"
+  #    # 当前协议对应的commit提交
+  #    commit: "1e8fc29df1c9967da2cacbf965ffab7d57cd6a9d"
+  #    # 协议使用范围：
+  #    # - 部门内
+  #    # - 公司内
+  #    # - 公司外
+  #    scene: "部门内"
+  #    # 协议描述
+  #    description: "求和demo"
+  # -
+  #    # 基于VideoPacket协议的命令字接口
+  #    type: "VideoPacket"
+  #    # 命令字
+  #    cmd: 0x1234
+  #    # 请求结构体
+  #    req: "Sum::DemoReq"
+  #    # 回包结构体
+  #    rsp: "Sum::DemoRsp"
+  #    # 接口关联协议所在仓库
+  #    remote: "http://git.code.oa.com/vepc_demo/SppVepc.git"
+  #    # 在仓库中，协议所在相对路径
+  #    path: "jce/demo.jce"
+  #    # 当前协议对应的commit提交
+  #    commit: "1e8fc29df1c9967da2cacbf965ffab7d57cd6a9d"
+  #    # 协议使用范围：
+  #    # - 部门内
+  #    # - 公司内
+  #    # - 公司外
+  #    scene: "部门内"
+  #    # 协议描述
+  #    description: "求和demo"
+  # -
+  #    # http协议的接口
+  #    type: "http"
+  #    url: "https://access.video.qq.com/os_tv/get_tv_devid"
+  #    # http接口的wiki地址
+  #    wiki: ""
+
+# 定义项目分支命名规范,可以根据业务实际分支类型，填写相应的命名规范，对不适合的分支项可以删除
+# 所有分支命名推荐统一使用小写字母
+branch:
+  # 主干分支
+  trunk_name: "master"
+  branch_type_A:
+    personal_feature:
+      pattern: "feature/.*"
+    bugfix:
+      pattern: "bugfix/.*"
+    tag:
+      pattern: "versionnumber_yyyyMMddHHmm"
+      # versionnumber特指版本号
+      versionnumber: "Major.Feature.Fix.BuildNo"
+
+
+artifact:
+  # 大仓的情况，可能不同目录是不同的发布单元,下面path指定代码仓库里相应发布单元目录
+  # 若整个仓库代码是一个发布单元，该path为当前目录
+  - path: "/"
+    # 发布单元名称，如AndroidQQ、epc-demo
+    artifact_name: "video_timeline"
+    #发布单元类型，可选类型字段有，移动端/PC端/后台单体应用/后台微服务/web/sdk/lib/框架
+    #比如发布单元为腾讯视频Android客户端，则发布单元类型为如下样例 移动端
+    artifact_type: "后台微服务"
+
+    # 提供产品发布单元发布制品归档地址
+    # 地址定义说明详见：https://git.code.oa.com/epcm/new_epc_tmp/blob/master/0F.artifacts-release-spec.md
+    repository_url: "https://mirrors.tencent.com/repository/generic/qqlive/packages/feeds.video_timeline/"
+
+source:
+  # 提供产品代码库中编写的测试代码存放目录或文件名格式,以便后续代码统计环节进行排除等特殊处理
+  test_source:
+    # 提供相对路径格式的测试代码目录，路径支持通配符方式描述
+    # directory_path: ["./video_timeline/client/"]
+    # 若以上指定的测试代码目录都是项目测试代码，测试代码文件命名标识可以为空
+    # 测试代码文件的正则表达式
+    filepath_regex: [".*_test.*", "./video_timeline/client/.*", "./test/.*"]
+
+  # 提供产品代码库中工具或框架自动生成的且在代码库中的代码，没有可为空。以便后续代码统计环节进行排除等特殊处理。
+  auto_generate_source:
+    # 自动生成代码文件的正则表达式，若无统一标识格式，可以指定具体目录，样例可参考test_source举例
+    filepath_regex: [".*stub/.*"]
+
+  # 提供产品代码库中直接以源码形式存在的第三方代码目录或代码文件名的正则表达。
+  # 此处备注的第三方代码在后续统计代码量环节会被排除，若代码库中不存在需要排除的第三方代码，该项配置标识可为空
+  third_party_source:
+    #第三方代码文件的正则表达式，若无统一标识格式，可以指定具体目录，样例可参考test_source举例
+    filepath_regex: [".*vendor/.*", ".*third_party/.*"]
+
+# 针对整个项目默认代码评审配置
+code_review:
+  # 定义产品工蜂cr的评论标签
+  restrict_labels: ["CR-编程规范", "CR-业务逻辑","CR-边界逻辑","CR-代码架构","CR-性能影响","CR-安全性","CR-可测试性","CR-可读性"]
+  # 评审人
+  reviewers: ["henklin","allencheng","codyyao","jessejxchen","iwinkzhang","isaacmxu","apollozhu","wymli"]
+  # 必要评审人
+  necessary_reviewers: ["henklin","allencheng","codyyao","jessejxchen","iwinkzhang","isaacmxu","apollozhu","wymli"]
+
+# 自定义文件或目录owner和代码评审配置
+# 文件或目录可使用绝对或相对路径，绝对路径按代码库根目录计算，以/开头。相对路径按.code.yml所在目录来判断，以 ./开头
+file:
+  - path: ".*"
+    owners: ["henklin","allencheng","codyyao","jessejxchen","iwinkzhang","isaacmxu","apollozhu","wymli"]
+    # owner_rule, 必填项，文件负责人通过规则可选值 -1,0,大于等于1的整数;
+    # -1,表示需所有owner审批；
+    # 0，表示该文件无需任意一个owner审批;
+    # 用大于等于1的整数，表示需要相应整数个的owner审批该路径，比如2，标识需要任意两个owners审批
+    owner_rule: 1
+    # 以下code_review为可选项，该项表示路径评审，但评审是针对整个CR单，非owner机制中只评审单个文件
+    code_review:
+      reviewers:  ["henklin","allencheng","codyyao","jessejxchen","iwinkzhang","isaacmxu","apollozhu","wymli"]
+      necessary_reviewers:  ["henklin","allencheng","codyyao","jessejxchen","iwinkzhang","isaacmxu","apollozhu","wymli"]
+
+# .code.yml版本，后续可能会自动升级到新版本
+version: 1.1
