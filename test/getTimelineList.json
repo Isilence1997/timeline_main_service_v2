@@ -1,0 +1,18 @@
+[
+    {
+        "CaseName": "caseName1",
+        "Type": "",
+        "CaseDesc": "TimelineService",
+        "CostTimeMS": 0,
+        "TestSuite": "suitName1",
+        "ServiceName": "trpc.feeds.video_timeline.TimelineService",
+        "MethodName": "getTimelineList",
+        "ProtoFile": "",
+        "ReqBody": "trpc.feeds.video_timeline.TimelineListReq",
+        "RspBody": "trpc.feeds.video_timeline.TimelineListRsp",
+        "Protocol": "trpc",
+        "Head": "",
+        "RequestJson": {},
+        "CheckList": []
+    }
+]
