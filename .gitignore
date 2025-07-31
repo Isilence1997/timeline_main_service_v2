@@ -5,3 +5,5 @@ test.out
 *.log
 video_timeline
 !video_timeline/
+
+ENGINEERING_GUIDE_*

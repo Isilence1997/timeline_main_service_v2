@@ -1,0 +1,1 @@
+go test ./logic/... ./dao/redis/...  --covermode=count -coverprofile=cover.out -v -gcflags=all=-l
