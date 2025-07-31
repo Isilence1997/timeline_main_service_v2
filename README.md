@@ -52,27 +52,26 @@ Edit `config.yaml` as per your Redis setup.
 ### 服务架构 Project Structure
 
 timeline_main_service_v2/
-├── logic/                # Core business logic divided into sub-packages
-│   ├── config/       # Higher-level config handlers that work with the data from the config file and Wuji
-│   ├── idlist/           # obtaining lists of content IDs that should appear in the timeline feed for a user
-│   ├── sortcache/        # Handles sorting of feed items and caching the results
-│   ├── feed/             # high-level feed composition logic
-│   ├── avatarlist/       # 
-│   ├── common/           # 
-│   └── backsource/       # handle _back-source_ IDs.
-
-├── dao/                  # Data access layer
-│   ├── wuji/             # Integration with the Wuji platform
-│   └── redis/            # Encapsulates interactions with Redis for caching
-├── config/               # Configuration loading logic
-├── test/                 # Unit and integration tests
-├── main.go               # Service entrypoint
-├── common/               # Common utilities and definitions
-│   ├── constant/         # Integration with the Wuji platform
-│   ├── retry/            # Ge tNetwork Error Retry
-│   ├── errcode/          # Encapsulates interactions with Redis for caching
-│   └── utility/          # Common utilities
-└── model/                # Data models and structures used across the service             
+├── logic/                # Core business logic divided into sub-packages  
+│   ├── config/       # Higher-level config handlers that work with the data from the config file and Wuji  
+│   ├── idlist/           # obtaining lists of content IDs that should appear in the timeline feed for a user  
+│   ├── sortcache/        # Handles sorting of feed items and caching the results  
+│   ├── feed/             # high-level feed composition logic  
+│   ├── avatarlist/       #   
+│   ├── common/           #   
+│   └── backsource/       # handle _back-source_ IDs.  
+├── dao/                  # Data access layer  
+│   ├── wuji/             # Integration with the Wuji platform  
+│   └── redis/            # Encapsulates interactions with Redis for caching  
+├── config/               # Configuration loading logic  
+├── test/                 # Unit and integration tests  
+├── main.go               # Service entrypoint  
+├── common/               # Common utilities and definitions  
+│   ├── constant/         # Integration with the Wuji platform  
+│   ├── retry/            # Ge tNetwork Error Retry  
+│   ├── errcode/          # Encapsulates interactions with Redis for caching  
+│   └── utility/          # Common utilities  
+└── model/                # Data models and structures used across the service               
 
 ### 启动服务 Start and Running
 
@@ -114,11 +113,4 @@ If the service encounters problems, follow these operational guidelines:
 - **Q: How is the content ranked?**  
   A: The current ranking algorithm is a simple weighted model influenced by posted time and content freshness.
 
-## 行为准则    Code Of Conduct
 
-Developers must adhere to internal Tencent guidelines for code collaboration, responsibility scope, software licensing, and conflict resolution.
-
-## 团队介绍    Members
-
-- **Maintainers**: Infrastructure Team  
-- **Communication Channel**: DevOps Platform, video_app_short_video Group
