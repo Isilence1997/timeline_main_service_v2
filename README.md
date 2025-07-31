@@ -68,7 +68,7 @@ timeline_main_service_v2/
 ├── main.go               # Service entrypoint  
 ├── common/               # Common utilities and definitions  
 │   ├── constant/         # Integration with the Xvkj platform  
-│   ├── retry/            # Ge tNetwork Error Retry  
+│   ├── retry/            # Get Network Error Retry  
 │   ├── errcode/          # Encapsulates interactions with Redis for caching  
 │   └── utility/          # Common utilities  
 └── model/                # Data models and structures used across the service               
