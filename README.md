@@ -53,7 +53,7 @@ Edit `config.yaml` as per your Redis setup.
 
 timeline_main_service_v2/
 ├── logic/                # Core business logic divided into sub-packages  
-│   ├── config/       # Higher-level config handlers that work with the data from the config file and Wuji  
+│   ├── config/       # Higher-level config handlers that work with the data from the config file and Xvkj  
 │   ├── idlist/           # obtaining lists of content IDs that should appear in the timeline feed for a user  
 │   ├── sortcache/        # Handles sorting of feed items and caching the results  
 │   ├── feed/             # high-level feed composition logic  
@@ -61,13 +61,13 @@ timeline_main_service_v2/
 │   ├── common/           #   
 │   └── backsource/       # handle _back-source_ IDs.  
 ├── dao/                  # Data access layer  
-│   ├── wuji/             # Integration with the Wuji platform  
+│   ├── Xvkj/             # Integration with the Xvkj platform  
 │   └── redis/            # Encapsulates interactions with Redis for caching  
 ├── config/               # Configuration loading logic  
 ├── test/                 # Unit and integration tests  
 ├── main.go               # Service entrypoint  
 ├── common/               # Common utilities and definitions  
-│   ├── constant/         # Integration with the Wuji platform  
+│   ├── constant/         # Integration with the Xvkj platform  
 │   ├── retry/            # Ge tNetwork Error Retry  
 │   ├── errcode/          # Encapsulates interactions with Redis for caching  
 │   └── utility/          # Common utilities  
